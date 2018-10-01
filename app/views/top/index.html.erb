@@ -2,8 +2,7 @@
 <p>説明文</p>
 <p>if文</p>
 <% if user_signed_in? %>
-<p>ログイン中：<%= current_user.name %>さん</p>
-
+  <p>ログイン中：<%= current_user.name %>さん</p>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
 <% else %>
   <li><%= link_to 'ログイン', new_user_session_path  %></li>
