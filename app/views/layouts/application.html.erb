@@ -28,8 +28,9 @@
   				<li><a href="#">検索</a></li>
   			</ul>
         <% if user_signed_in? %>
-    			<p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link"><%= current_user.name %></a> さん。</p>
+          <p class="navbar-text navbar-right"><%= link_to '登録情報変更', edit_user_registration_path  %></p>
           <p class="navbar-text navbar-right"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></p>
+          <p class="navbar-text navbar-right">ようこそ <a href="#" class="navbar-link"><%= current_user.name %></a> さん。</p>
         <% else %>
           <p class="navbar-text navbar-right"><%= link_to 'サインアップ', new_user_registration_path %></p>
           <p class="navbar-text navbar-right"><%= link_to 'ログイン', new_user_session_path  %></p>
