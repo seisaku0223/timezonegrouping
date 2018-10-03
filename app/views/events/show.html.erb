@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h1>イベント詳細ページ</h1>
+    登録者：<%= @event.user.name %><br>
+    タイトル名：
+    <%= link_to event_path(@event.id) do %>
+      <strong><%= @event.title %></strong><br>
+    <% end %>
+    内容：<%= @event.content %><br>
+    条件：<%= @event.requirement %><br>
+    <% if current_user.id == event.manager_id %>
+      <%= link_to "内容編集", edit_event_path(event.id), class: 'btn btn-default' %>
+      <%= link_to "削除", event_path(event.id), method: :delete, data: {confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn-danger' %><br>
+    <% end %>
+    <br>
+    参加登録<br>
+    参加登録者一覧<br>
+    <%= link_to '戻る', events_path %>
+  </div>
+</div>
