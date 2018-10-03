@@ -1,16 +1,6 @@
 <div class="container">
   <div class="row">
-    <%= form_for(@event) do |event| %>
-      <%= event.label :title %>
-      <%= event.text_field :title, class: 'form-control' %>
-      <br>
-      <%= event.label :content %>
-      <%= event.text_field :content, class: 'form-control' %>
-      <br>
-      <%= event.label :requirement %>
-      <%= event.text_field :requirement, class: 'form-control' %>
-      <br>
-      <%= event.submit '新規登録', class: 'btn btn-primary btn-block' %>
-    <% end %>
+    <h2>イベント内容編集</h2>
+    <%= render 'form' %>
   </div>
 </div>
