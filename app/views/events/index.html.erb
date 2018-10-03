@@ -1,8 +1,18 @@
-<h1>イベント一覧ページ</h1>
-
-イベント1：表題
-内容
-参加条件
-
-参加登録｜
-編集｜削除（管理者用）
+<div class="container">
+  <div class="row">
+    <h1>イベント一覧ページ</h1>
+    <% @events.each do |event| %>
+      タイトル名：
+      <%= link_to event_path(event) do %>
+        <strong><%= event.title %></strong><br>
+      <% end %>
+      内容：<%= event.content %><br>
+      条件：<%= event.requirement %><br>
+      参加登録
+    <% end %>
+    <p>
+      <%= link_to "イベント新規登録", new_event_path, class: 'btn btn-default' %>
+      編集・削除
+    </p>
+  </div>
+</div>
