@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :events, foreign_key: "manager_id"
+  has_many :registrations, dependent: :destroy
 end
