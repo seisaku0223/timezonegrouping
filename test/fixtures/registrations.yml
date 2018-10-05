@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  event_id: 
+  desire_day: 1
+  desire_time: 1
+  on_requirement: 1
+
+two:
+  user_id: 
+  event_id: 
+  desire_day: 1
+  desire_time: 1
+  on_requirement: 1
