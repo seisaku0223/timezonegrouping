@@ -22,7 +22,9 @@
   		<div class="collapse navbar-collapse" id="navbarEexample8">
   			<ul class="nav navbar-nav">
   				<li><%= link_to 'イベント一覧', events_path %></li>
-  				<li class="active"><a href="#">マイページ</a></li>
+          <% if user_signed_in? %>
+  				<li><%= link_to 'マイページ', user_path(current_user.id) %></li>
+          <% end %>
   				<li><a href="#">検索</a></li>
   			</ul>
         <% if user_signed_in? %>
