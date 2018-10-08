@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <h1>イベント詳細ページ</h1>
+    <p id="notice"><%= notice %></p>
     登録者：<%= @event.user.name %><br>
     タイトル名：
     <%= link_to event_path(@event.id) do %>
@@ -15,6 +16,10 @@
     <br>
     参加登録<br>
     参加登録者一覧<br>
+    <div id="registration_area">
+      <%= render partial: 'registrations/index', locals: { registrations: @registrations, event: @event} %>
+    </div>
+    <%= render partial: 'registrations/form', locals: { registration: @registration, event: @event } %>
     <%= link_to '戻る', events_path %>
   </div>
 </div>

@@ -1,0 +1,21 @@
+<%= form_for([event,registration]) do |f| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= registration.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :event_id %>
+  <div class="field">
+    <%= f.text_field :desire_day, placeholder: "時(0～23)", class: "form-control"  %>
+    <%= f.text_field :desire_time, placeholder: "分(0～59)", class: "form-control"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
