@@ -1,0 +1,22 @@
+<%= form_for([event,registration], remote: true) do |f| %>
+  <% if registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= registration.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :event_id %>
+  <div class="field">
+    <%= f.datetime_select :start_datetime, start_year: Time.now.year, end_year: Time.now.year, minute_step: 15 %>
+    ～
+    <%= f.datetime_select :end_datetime, start_year: Time.now.year, end_year: Time.now.year, minute_step: 15 %>
+  </div>
+  <div class="actions">
+    <%= f.submit '参加登録する' %>
+  </div>
+<% end %>
