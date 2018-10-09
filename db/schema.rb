@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20181005023606) do
   create_table "registrations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
-    t.integer  "desire_day"
-    t.integer  "desire_time"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.integer  "on_requirement"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
