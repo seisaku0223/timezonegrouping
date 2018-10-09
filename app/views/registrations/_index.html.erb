@@ -2,14 +2,15 @@
   <% registrations.each do |registration| %>
     <% unless registration.id.nil? %>
       <li>
-        <p class="left"><%= registration.user.name %>さんがコメントしました。</p>
-        <p class="left"><%= registration.desire_day %></p>
-        <p class="left"><%= registration.desire_time %></p>
+        <div class="left">
+          <%= registration.user.name %>さん
+          <%= registration.start_datetime.strftime('%m月%d日 %H:%M') %>～
+          <%= registration.end_datetime.strftime('%m月%d日 %H:%M') %>
+        </div>
         <% if current_user.id == registration.user.id %>
-          <p class="right">
-            <%= link_to '', edit_event_registration_path(event, registration), class: "fa fa-pencil-square-o fa-lg" %>
+          <div class="right">
             <%= link_to '', event_registration_path(event, registration), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
-          </p>
+          </div>
         <% end %>
       </li>
     <% end %>
