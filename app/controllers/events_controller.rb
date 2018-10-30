@@ -5,6 +5,11 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def search
+    @search = Event.ransack(params[:q])
+    @events = @search.result(distinct: true)
+  end
+
   def new
     @event = Event.new
   end
