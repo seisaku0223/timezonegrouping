@@ -25,7 +25,7 @@
           <% if user_signed_in? %>
   				<li><%= link_to 'マイページ', user_path(current_user.id) %></li>
           <% end %>
-  				<li><a href="#">検索</a></li>
+  				<li><%= link_to '検索', search_events_path %></li>
   			</ul>
         <% if user_signed_in? %>
           <p class="navbar-text navbar-right"><%= link_to '登録情報変更', edit_user_registration_path  %></p>
