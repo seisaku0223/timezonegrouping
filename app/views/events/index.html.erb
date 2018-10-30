@@ -7,6 +7,7 @@
     <% @events.each do |event| %>
       登録者：<%= event.user.name %><br>
       タイトル名：<strong><%= event.title %></strong><br>
+      タグ：<%= render 'events/tag_list', tag_list: event.label_list %><br>
       内容：<%= event.content %><br>
       条件：<%= event.requirement %><br>
 

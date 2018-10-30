@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <h1>イベント検索ページ</h1>
+    <%= search_form_for @search do |f| %>
+      <div class="form-group">
+      <%= f.label :title_cont, "Title" %>
+      <%= f.text_field :title_cont, class: "form-control" %>
+      </div>
+      <div class="actions"><%= f.submit "検索" %></div>
+    <% end %>
+  </div>
+</div>

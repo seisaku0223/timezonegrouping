@@ -4,4 +4,8 @@ class Event < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true
+
+  # タグ機能用
+  acts_as_taggable_on :labels
+  acts_as_taggable
 end

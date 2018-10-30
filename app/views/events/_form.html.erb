@@ -2,6 +2,9 @@
   <%= event.label :title %>
   <%= event.text_field :title, class: 'form-control' %>
   <br>
+  <%= event.label :labels %>
+  <%= event.text_field_tag 'event[label_list]', @event.label_list.join(','), class: 'form-control' %>
+  <br>
   <%= event.label :content %>
   <%= event.text_field :content, class: 'form-control' %>
   <br>
