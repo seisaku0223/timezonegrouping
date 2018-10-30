@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <h1>イベント_参加者グループ分けテストページ</h1>
+
+    <p>参加者一覧表示</p>
+    <div class="registrations_table">
+      <table>
+        <tr>
+          <th>名前</th>
+          <th>希望時間</th>
+          <th>処理済み</th>
+        </tr>
+        <% @registrations_data.each do |registration| %>
+          <tr>
+            <td><%= registration.user.name %>さん</td>
+            <td><%= viewtime_start(registration.start_datetime) %>～<%= viewtime_end(registration.end_datetime) %></td>
+            <td><%= registration.on_requirement %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <hr>
+    <p>グループ作るぞ！</p>
+    <%= @jikansa_key if @jikansa_key.present? %>
+    <%= @jikansa_val if @jikansa_val.present? %>
+
+    <% if @time_start.present? %>
+      <%= viewtime_start(@time_start) %>～<%= viewtime_start(@time_end) %>
+    <% end %>
+    <hr>
+    <%= form_tag(test1_event_path, method: :get) do %>
+      <%= datetime_select :timerange_start, :datetime1 %>～<%= datetime_select :timerange_end, :datetime2 %>
+      <BR>
+      <%= submit_tag 'とりあえず時間おくってみる' %>
+    <% end %>
+    <hr>
+
+    <%= @h.each do |k,v| %>
+      <%= @registrations_data.find(v) %>
+      <br>
+    <% end %>
+
+    <hr>
+  </div>
+</div>
