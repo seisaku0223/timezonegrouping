@@ -1,13 +1,11 @@
 class EventsController < ApplicationController
+  before_action :set_eventdata, only: [:index, :search]
   before_action :set_event_id, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
   end
 
   def search
-    @search = Event.ransack(params[:q])
-    @events = @search.result(distinct: true)
   end
 
   def new
@@ -49,6 +47,11 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :content, :requirement, :label_list)
+    end
+
+    def set_eventdata
+      @search = Event.ransack(params[:q])
+      @events = @search.result(distinct: true)
     end
 
     def set_event_id
