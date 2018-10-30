@@ -21,3 +21,4 @@ end
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'ransack'
+gem 'acts-as-taggable-on', '~> 3.4'
