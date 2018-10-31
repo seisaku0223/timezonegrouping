@@ -17,6 +17,7 @@
         <%= link_to "内容編集", edit_event_path(event.id), class: 'btn btn-default' %>
         <%= link_to "削除", event_path(event.id), method: :delete, data: {confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn-danger' %><br>
       <% end %>
+      <%= link_to "参加者情報グループ化テスト用", test1_event_path(event.id), class: 'btn btn-default' %>
       <hr>
     <% end %>
   </div>
